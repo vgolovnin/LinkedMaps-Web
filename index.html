@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="description" content="Digital Watch Application" />
+<title>Digital Watch</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script src="http://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script>
+</head>
+
+<body>
+	<div class="contents">
+		<div id="mmm"
+			style="position: absolute; top: 60px; left: 60px; width: 250px; height: 250px; border: 1px solid"></div>
+	</div>
+	<script type="text/javascript">
+		var map;
+		DG.then(function() {
+			map = DG.map('mmm', {
+				center : [ 54.98, 82.89 ],
+				zoom : 13
+			});
+			DG.control.location({
+				position : 'topright'
+			}).addTo(map);
+			map.locate({
+				setView : true,
+				watch : true
+			}).on('locationfound', function(e) {
+				DG.marker([ e.latitude, e.longitude ]).addTo(map);
+			}).on('locationerror', function(e) {
+				console.log(e.message);
+				//alert("Location access denied.");
+			});
+
+		});
+
+		document.addEventListener("rotarydetent", function(ev) {
+			var dir = ev.detail.direction;
+			if (dir === "CW") {
+				map.zoomIn();
+				 
+
+			} else if (dir === "CCW") {
+				
+				map.zoomOut();
+				 
+				
+			} else {
+				alert("SMTH WRONG");
+			}
+		});
+		/* document.click = function() {
+			
+
+		} */
+	</script>
+
+
+</body>
+
+</html>
+
+
