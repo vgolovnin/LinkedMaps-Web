@@ -7,14 +7,22 @@
 	};
 	
 	adapter.startScan(successcallback);
+	
+	var locationuuid = "1819"; /* 1819 is Location&Navigation UUID */
 		
 	var payload = {lat: 123.456, lon: 232.123};
+	
+	var serviceData = new tizen.BluetoothLEServiceData(
+	{
+		uuid: locationuuid,
+		data: payload,
+	});
 	
 	var advertiseData = new tizen.BluetoothLEAdvertiseData(
 			{
 			   includeName: true,
-			   serviceuuids: ["1819"],  /* 1819 is Location&Navigation UUID */
-			   serviceData: payload
+			   serviceuuids: [locationuuid],  
+			   serviceData: serviceData,
 			});
 			var connectable = true;
 

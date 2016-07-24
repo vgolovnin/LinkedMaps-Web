@@ -2,6 +2,50 @@
 <SignedInfo>
 <CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"></CanonicalizationMethod>
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
+<Reference URI=".git%2FFETCH_HEAD">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>sFzs5xgmaQMmH703Y6K1N3pLaGxzNw5NGNfCfLwezXM=</DigestValue>
+</Reference>
+<Reference URI=".git%2FHEAD">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>9vK5RfbEEbAro9qces6I3PcbavZbouDYmqgpAAQrWhA=</DigestValue>
+</Reference>
+<Reference URI=".git%2Fconfig">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>9+WMqFhwh6XdswS1YuZgGqXncSXgxhd7T3BwGzL6AfA=</DigestValue>
+</Reference>
+<Reference URI=".git%2Findex">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>P3fFovuO+HpJsyMGwQPZccR09NfgDln+DGGlta2lqNA=</DigestValue>
+</Reference>
+<Reference URI=".git%2Flogs%2FHEAD">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>2eRc9tnNPkmljKYX+Bz2apfzn+lX2xhkoJF0MhfMgr4=</DigestValue>
+</Reference>
+<Reference URI=".git%2Flogs%2Frefs%2Fheads%2Fmaster">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>2eRc9tnNPkmljKYX+Bz2apfzn+lX2xhkoJF0MhfMgr4=</DigestValue>
+</Reference>
+<Reference URI=".git%2Flogs%2Frefs%2Fremotes%2Forigin%2Fmaster">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>tU7yEa7Mo86RuU9sRe33yQGVAqz2jLbxIcw+MefzPDQ=</DigestValue>
+</Reference>
+<Reference URI=".git%2Fobjects%2Fpack%2Fpack-efd89f3e118da68c4d6cfbd3450addaa19bd60a6.idx">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>TvYvZc1uzkx5SU5TDJXpdTl5gN+2ozVWAfYFaizZxm0=</DigestValue>
+</Reference>
+<Reference URI=".git%2Fobjects%2Fpack%2Fpack-efd89f3e118da68c4d6cfbd3450addaa19bd60a6.pack">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>h534lOT5q6GX78K/Xm3cirZg47kNRUpk0pzplXf1H2U=</DigestValue>
+</Reference>
+<Reference URI=".git%2Frefs%2Fheads%2Fmaster">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>5Xorp27LlHGhB8py6W40qLNoIBgvf0nazXxKcrjiXQg=</DigestValue>
+</Reference>
+<Reference URI=".git%2Frefs%2Fremotes%2Forigin%2Fmaster">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>5Xorp27LlHGhB8py6W40qLNoIBgvf0nazXxKcrjiXQg=</DigestValue>
+</Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>dQR7PXGf5EhMkr6pTJBkF3iZs9Dv23/IH/HS8EQOW2A=</DigestValue>
@@ -35,51 +79,42 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-xdb4zoMCCHh3ncFjDi8+Ix+LGi32WA9EE/mGxrY1K5ZnQF5QzPt+k4h6Hxvm5I97g7yRdYmRAA1w
-CB9gNgKOVQ/GGxwxbqAPbtbV0nLIr0Advqe5Ir6rc8l9a/hejW+SFpPKziufkL0xT15FkFpOqjAm
-dYffZsmWyLjMuar8Jk3WFo/iCUCJSHdQEGog328m7uHgm2DzpTI39nLnwgzsJ0+xSLshMhwq8Liv
-La0tP/w4urwz29TRr+IwKzo3c6+MKMlyGNHxY/SOMop56EnDd/rYoUH7jzJCh89DJMwXdaGrmcCh
-MPnkdQ9WgMOo6IhM6MDFaCmHFbdkah7JQI8Tkg==
+HFAoh/tpRjr1BkjImSqzYQD6p8EA8vnS5oEaEgZl4kdOAb03Omztpa9AN0fw/GH0mpirjSsEhF2u
+fO8jUjgYps8QZESu4ZNjEW+oVAVYMOqXclzp61fFlKKeYEHqUYRUxI69qrkzA2XKCcOWObhodsro
+FnjqRR/4FDlWDbJsQ8c=
 </SignatureValue>
 <KeyInfo>
 <X509Data>
 <X509Certificate>
-MIIDljCCAn6gAwIBAgIBATANBgkqhkiG9w0BAQsFADCBsDELMAkGA1UEBhMCS1IxFDASBgNVBAgM
-C1NvdXRoIEtvcmVhMQ4wDAYDVQQHDAVTdXdvbjEmMCQGA1UECgwdU2Ftc3VuZyBFbGVjdHJvbmlj
-cyBDby4sIEx0ZC4xDzANBgNVBAsMBk1vYmlsZTEgMB4GA1UEAwwXU2Ftc3VuZyBBdXRob3IgQ0Eg
-Q2xhc3MxIDAeBgkqhkiG9w0BCQEWEXRpemVuQHNhbXN1bmcuY29tMB4XDTE2MDcxODA5MTkyMVoX
-DTE3MDcxODA5MTkyMVowUDELMAkGA1UEBhMCUlUxCTAHBgNVBAgTADEPMA0GA1UEBxMGTW9zY293
-MQkwBwYDVQQKEwAxCTAHBgNVBAsTADEPMA0GA1UEAxMGZGlxb3N0MIIBIjANBgkqhkiG9w0BAQEF
-AAOCAQ8AMIIBCgKCAQEAzuH+ZMxoJMItoMHKnKKbPnSiMcSlGs+FiPWmmvspu0AdCKZMj+X4Lx10
-A139DyCx7+hbFbSoeYrkmyITcPIxzApWjggGAQWRbLid09L1FYvKPucLXf9S9fZPnMhcF2c46KbM
-zVbXzO4QaSkNQgT+c+dR8JxgSBhAKGt/6kwSF+Zxa5/Hgrk3OfMbeVGEMSFqXml9L/dG/dO67ilG
-SSHqVQLBydup/xKopO+n8druFsIMN+PicKBy8JXU5k9ImXMpQHfcuZh5Bwc/uAq2l1i7//Goh5nK
-ch3uNIBvZU9/J9xTLrhOyFSi7UUlQ/O2NViSuaAqpvYoqiqAKhlzgh8iPQIDAQABoxowGDAJBgNV
-HRMEAjAAMAsGA1UdDwQEAwIHgDANBgkqhkiG9w0BAQsFAAOCAQEAa7TZKVxzelEocZSuGl7Qdsbu
-QRp2cPclqcmcs7rSkkPJTGVs26d25dsjBAyXR8zAkNaixdiJgvVOrW6snk1fJg6tWSo/tMfZD467
-47pJF/0dRG90HbSvLbNcDofP14D2nLeCZaBRQvuYIr8eKw+pGXs6FC4n2246pZ0EQtdqQJ9dBKu3
-u/DJ/4IfM6boNDDFQiNddlOtcAc85oXq5wba5QHDeJK9s1rqISWPYOPRaRINSDkn8veqZY0Oz/Q4
-BUbXLBgZVIlZhEC0I0QJJx9qLz0OAMOh5D7b9syd/F3magLYJ7RITaJSuFhMulcZcL2FVV3ONVHW
-pwcpcfqgqb3yVw==
+MIIClTCCAX2gAwIBAgIGAVYYBCqeMA0GCSqGSIb3DQEBBQUAMFYxGjAYBgNVBAoMEVRpemVuIEFz
+c29jaWF0aW9uMRowGAYDVQQLDBFUaXplbiBBc3NvY2lhdGlvbjEcMBoGA1UEAwwTVGl6ZW4gRGV2
+ZWxvcGVycyBDQTAeFw0xMjExMDEwMDAwMDBaFw0xOTAxMDEwMDAwMDBaMBExDzANBgNVBAMMBmF1
+dGhvcjCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAnitLsmO32I6q/2UUxIxPZZQm3C99FepW
++qXMkzf5Nw+zedcNnTjzyJYSOu88cnTd1wRDVUa34YLDUPLKK9rl38r/Rzk+pHDipHPtYdp4IMQw
+na+jlYJSTi2lqVndE8qIepzwi+LnKl/u0iSlWjVqO+9OHkZWEw7QBls8fX+5YpcCAwEAAaMyMDAw
+DAYDVR0TAQH/BAIwADALBgNVHQ8EBAMCB4AwEwYDVR0lBAwwCgYIKwYBBQUHAwMwDQYJKoZIhvcN
+AQEFBQADggEBAH5H70ypcxsYraQaeRYmfPlrkRv9hd6XdTiJfhNaaY2JYI1UfU8EdBBhvOdS4jQv
+dW91CWO6c+yPZX8SVws8pCF6zO764f9OESd80HVN1DkQrxs+N/VOUDxXhjiGTriz3jrOdM0AAjGm
+jrKkvHHa6ALVk+sMZQP2uA9Ui93+Nv4u5dOtzbUY9FFVQgrP0u/S8MTa0UzfXPGwx3+SL6CFVntv
+KIvHXDjO4bY33ZQJHUTXMHoAcCcAtlajxu7pjhwvBfKLHXqzzdw8c+FmxvTiEjaS9cK1vKs1Uw/K
+W8Phd1ja6cpi11x9qdSVnnQx53o1MidttE1lSbRgZQ/glIUaeS4=
 </X509Certificate>
 <X509Certificate>
-MIIDmzCCAoOgAwIBAgICYygwDQYJKoZIhvcNAQELBQAwXjEaMBgGA1UECgwRVGl6ZW4gQXNzb2Np
-YXRpb24xGjAYBgNVBAsMEVRpemVuIEFzc29jaWF0aW9uMSQwIgYDVQQDDBtUaXplbiBEZXZlbG9w
-ZXJzIFJvb3QgQ2xhc3MwHhcNMTMxMjMwMTUwNTU4WhcNMjgxMjI2MTUwNTU4WjCBsDELMAkGA1UE
-BhMCS1IxFDASBgNVBAgMC1NvdXRoIEtvcmVhMQ4wDAYDVQQHDAVTdXdvbjEmMCQGA1UECgwdU2Ft
-c3VuZyBFbGVjdHJvbmljcyBDby4sIEx0ZC4xDzANBgNVBAsMBk1vYmlsZTEgMB4GA1UEAwwXU2Ft
-c3VuZyBBdXRob3IgQ0EgQ2xhc3MxIDAeBgkqhkiG9w0BCQEWEXRpemVuQHNhbXN1bmcuY29tMIIB
-IjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAs+tRBgnKJs8j7BFg8/UftqbqTCYBV3Jrg1vK
-YvEuoTfntYz2uT2SO67raiCsZBAYvJnP54ExkdV++UgB7BDGniWz7bA1pYKak5kNK5jtLQt2DmZX
-3qgaLjMyoAz+293CxrBQO4h8NaTQGsO/WLpeQq2Y1ZEnHsq+EUn90H6Vm0HNW+KUayGPYdey+QSW
-iiv+L++TSuHrw0b16GYn83emiTnKTCmwpSOZ712Gy9kccl46/K4C8skEDVZjTk9s7r/MN9ZNZsqR
-brT/3AYcrF4ao8ipwlHK91WJBXXaiQICvp/dNfCSDWpTWy7z4XmgP16pSLnfgZlwEwWfiaavHRNM
-mwIDAQABoxAwDjAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQB/ZlNMTzlIHqC3mFSq
-ptuQDZG96XnYqiWsbYkqGgNhcq6c/B3TQsg7Z8cxXY/eqJQDN5gbrIpiUugMRdSOpAEcxF3lwd5k
-oOzVLn+3I7x1k6Q4pZdi1fJx+1XjCtrQgPqtvwM77urNqIA1MSG6HUPxYAKkRKjWPsg346E8S/c1
-Hq4UVBYEFcDC467uvWtYjxjEVQTmNUaUcQLU9P6VEL4QW+t7V54IN6IJDr9HoOGSgApxIBDDU46b
-MUwl+yK0GPvhrviwfVPkfmys1hn5N+gWectQVpBB1gbfy2KlLCCvW/Kl1VmtYz1kWwTyG8bwcjE0
-GLkwKNN5lPod+FmMhuW9
+MIIDOTCCAiGgAwIBAgIBATANBgkqhkiG9w0BAQUFADBYMRowGAYDVQQKDBFUaXplbiBBc3NvY2lh
+dGlvbjEaMBgGA1UECwwRVGl6ZW4gQXNzb2NpYXRpb24xHjAcBgNVBAMMFVRpemVuIERldmVsb3Bl
+cnMgUm9vdDAeFw0xMjAxMDEwMDAwMDBaFw0yNzAxMDEwMDAwMDBaMFYxGjAYBgNVBAoMEVRpemVu
+IEFzc29jaWF0aW9uMRowGAYDVQQLDBFUaXplbiBBc3NvY2lhdGlvbjEcMBoGA1UEAwwTVGl6ZW4g
+RGV2ZWxvcGVycyBDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANVGhRGmMIUyBA7o
+PCz8Sxut6z6HNkF4oDIuzuKaMzRYPeWodwe9O0gmqAkToQHfwg2giRhE5GoPld0fq+OYMMwSasCu
+g8dwODx1eDeSYVuOLWRxpAmbTXOsSFi6VoWeyaPEm18JBHvZBsU5YQtgZ6Kp7MqzvQg3pXOxtajj
+vyHxiatJl+xXrHgcXC1wgyG3buty7u/Fi2mvKXJ0PRJcCjjK81dqe/Vr20sRUCrbk02zbm5ggFt/
+jIEhV8wbFRQpliobc7J4dSTKhFfrqGM8rdd54LYhD7gSI1CFSe16pUXfcVR7FhJztRaiGLnCrwBE
+dyTZ248+D4L/qR/D0axb3jcCAwEAAaMQMA4wDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOC
+AQEAnOXXQ/1O/QTDHyrmQDtFziqPY3xWlJBqJtEqXiT7Y+Ljpe66e+Ee/OjQMlZe8gu21/8cKklH
+95RxjopMWCVedXDUbWdvS2+CdyvVW/quT2E0tjqIzXDekUTYwwhlPWlGxvfj3VsxqSFq3p8Brl04
+1Gx5RKAGyKVsMfTLhbbwSWwApuBUxYfcNpKwLWGPXkysu+HctY03OKv4/xKBnVWiN8ex/Sgesi0M
++OBAOMdZMPK32uJBTeKFx1xZgTLIhk45V0hPOomPjZloiv0LSS11eyd451ufjW0iHRE7WlpR6EvI
+W6TFyZgMpQq+kg4hWl2SBTf3s2VI8Ygz7gj8TMlClg==
 </X509Certificate>
 </X509Data>
 </KeyInfo>
