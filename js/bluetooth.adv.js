@@ -1,32 +1,27 @@
 (function(){
 	var adapter = tizen.bluetooth.getLEAdapter();
+
 	
-	function successcallback(device)
-	{
-	   console.log("Found device: " + device.name + " [" + device.address + "]");
-	};
-	
-	adapter.startScan(successcallback);
-	
-	var locationuuid = "1819"; /* 1819 is Location&Navigation UUID */
+	var serviceuuid = "1819"; /* 1819 is Location&Navigation UUID */ // 32-bit "5857-4d3f"
 		
 	var payload = {lat: 123.456, lon: 232.123};
 	
-	var serviceData = new tizen.BluetoothLEServiceData(
-	{
-		uuid: locationuuid,
-		data: payload,
-	});
+
+	var ADV_MODE = "ADVERTISE"; // "SCAN_RESPONSE"
+	var connectable = true;
+
 	
 	var advertiseData = new tizen.BluetoothLEAdvertiseData(
 			{
 			   includeName: true,
-			   serviceuuids: [locationuuid],  
-			   serviceData: serviceData,
+			   uuids: [serviceuuid],  
+			   // solicitationuuids: [serviceuuid]
 			});
-			var connectable = true;
 
-			adapter.startAdvertise(advertiseData, "ADVERTISE",
+			advertiseData = new tizen.BluetoothLEServiceData(serviceuuid, "15");
+					
+			
+			adapter.startAdvertise(advertiseData, ADV_MODE,
 			                       function onstate(state)
 			                       {
 			                          console.log("Advertising configured: " + state);
