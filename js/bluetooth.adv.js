@@ -18,7 +18,7 @@
 			   // solicitationuuids: [serviceuuid]
 			});
 
-			advertiseData.systemData = new tizen.BluetoothLEServiceData(serviceuuid, "15");
+			advertiseData.serviceData = new tizen.BluetoothLEServiceData(serviceuuid, "15");
 					
 			
 			adapter.startAdvertise(advertiseData, ADV_MODE,
