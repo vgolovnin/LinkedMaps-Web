@@ -2,23 +2,23 @@ var serviceApplicationId = "BW08vTW8wW.bluetoothleservice";
 var remotePort;
 
 
-function setAdv()
+function setAdv(command, lat, lng, stamp)
 {
 	remotePort.sendMessage([{
 		key : "command",
-		value : "setAdv"
+		value : command // string
 	} , 
 	{
 		key: "lat",
-		value: "123.434235"
+		value: lat // string
 	} ,
 	{
 		key: "lng",
-		value: "321.434235"
+		value: lng // string
 	},
 	{
 		key: "stamp",
-		value: "229"
+		value: stamp // string
 	}]);
 }
 
