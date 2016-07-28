@@ -22,6 +22,14 @@ function setAdv()
 	}]);
 }
 
+function stopAdv()
+{
+	remotePort.sendMessage([{
+		key : "command",
+		value : "stopAdv"
+	}]);
+}
+
 function startScan()
 {
 	remotePort.sendMessage([ {
@@ -50,6 +58,7 @@ function getMsg(data, replyPort)
 
 tizen.application.launch(serviceApplicationId, function() {
 		console.log("Service started");
+		
 		setTimeout(function(){
 			console.log("RemotePort");
 			remotePort = tizen.messageport.requestRemoteMessagePort(serviceApplicationId, "BLE_NATIVE");
@@ -85,6 +94,11 @@ window.onload = function() {
 		console.log(remotePort);
 		setAdv();
 	});
+	
+	$("#stopadv").click(function(){
+		stopAdv();
+	});
+	
 
     // add eventListener for tizenhwkey
     document.addEventListener('tizenhwkey', function(e) {
