@@ -15,6 +15,10 @@ function setAdv()
 	{
 		key: "lng",
 		value: "321.434235"
+	},
+	{
+		key: "stamp",
+		value: "229"
 	}]);
 }
 
