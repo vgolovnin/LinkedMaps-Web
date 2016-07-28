@@ -4,7 +4,7 @@
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>3RgqXK1Hz+7HpumLoify2DsWd4KuwhtK+fyWZy6Ql2U=</DigestValue>
+<DigestValue>tEvVm0wcdclc3k9m3ESd6xSwTqQjPnCKFh1TiOKK1/o=</DigestValue>
 </Reference>
 <Reference URI="bin%2Fbluetoothleservice">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -44,7 +44,7 @@
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Fmaps.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>lXWEqgsoLKvycs2GEY5V/GiNOzfTdE8hH/Zj/JP0Ses=</DigestValue>
+<DigestValue>2UpbLTlYNdybr2XJY3oPXRsaLoKOGZPvFo0kQ0PIi+g=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Fmenu.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -1055,11 +1055,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-CE6aVx4XqFQ5y8L8ZvNm8JU1RghFzbOGQ4biwgJw+3VkpztmMETxqrEtV34uiolBki6V9Tsbi0fY
-BwhTr+TeRDIbaol1TFJJzRrr1UV4G5O/QnXhRPiz7/bUKZP+NqFcs1VeZ+umhmErreUB8mCMY4kl
-s8qvm6AJ6MoEy7WaPfmeCu/Iz+AIW3bVEnDfX2nClQZRppRy0aRDRFMEZkLWQOlBR9A5RZJ1xuW2
-Zvz9sSYsRdfn15QbGh9YVk1IV2eWQitZ1wnN6ohLoeH7wPsFkqGAJ/XmExXt6rdZSzqlqYnAXJ9D
-Nacn47UKK99gut2kDd+yDkZiKDtibojcuQEWig==
+KSJSqe91e9e+y9KsKknbrc8YR+p60J4pKBlC+cgI8/EDVRmwrP9h6mwtTsjIn6OsXbjG+h6R0L1N
+eDxJCPmvgNxS6yBAATLIxCuNBBNF59Tr21/YyzeXdsHih1ubs2fu+0VKCd18McqsyxdDGSPRrmwM
+LxybZm4rlFqqW2HOyBT47r2SYlaat5cwfw0VjXcPWKG278bjebyCO3nr3FPJ2czMLbPlWhJO9ra+
+amIuw/YbsXXCQTaqnzryN+r9TqjhxDEWNHY0Z70DStGmHS6sVvedfcpAH5dLNHF39HMEHczIz25v
+ctz0KF3CoSI15I9AxQaKR3sInpA1g6agItfPwg==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

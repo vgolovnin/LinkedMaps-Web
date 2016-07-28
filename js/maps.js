@@ -36,15 +36,7 @@ function addLongTapListener(){
 		var newMarker = DG.marker([ e.latlng.lat, e.latlng.lng ]);
 		newMarker.addTo(map);
 		markers.push(newMarker);
-		
-		if (markers.length ==2){
-			 
-			markers[0].remove();
-			markers[1].remove();
-			markers = [];
-		}
-		
-		
+	 	
 		if (markers.length == 2){ 
 			
 			var m1 = markers[0], m2 = markers[1];
@@ -60,7 +52,7 @@ function addLongTapListener(){
 function routeApiResult(response, on_finish){
 	 var leg = response.routes[0].legs[0],
  	 steps = leg.steps;
-	 clearMap();
+	 
 	 drawRoute(steps);
 	 if (on_finish !== null && typeof on_finish !== 'undefined')
 		 on_finish();
@@ -92,6 +84,7 @@ function rotateMap(angle){
 }	
 function drawRoute(steps){
 	 
+	
 	 buildedRoute = DG.polyline([]).addTo(map);
 	 for (var i = 0; i < steps.length; i++){
 		 buildedRoute.addLatLng([steps[i].start_location.lat,steps[i].start_location.lng]);
@@ -99,19 +92,24 @@ function drawRoute(steps){
 
 	 }
  
-	 map.fitBounds([[steps[0].start_location.lat, steps[0].start_location.lng], [steps[steps.length - 1].end_location.lat,steps[steps.length - 1].end_location.lng]]);
-	 map.zoomOut();
 	
 
      console.log(steps)
 }
 function buildRoute(steps){
+	clearMap();
 	drawRoute(steps);
-	var m1 =DG.marker([ e.latitude, e.longitude ]), 
+	var m1 = DG.marker([steps[0].start_location.lat,steps[0].start_location.lng]), 
 	    m2 = DG.marker([steps[steps.length - 1].end_location.lat,steps[steps.length - 1].end_location.lng]);
 	 markers.push(m1,m2);
 	 m1.addTo(map);
 	 m2.addTo(map); 
+	 
+	 map.fitBounds([[steps[0].start_location.lat, steps[0].start_location.lng], [steps[steps.length - 1].end_location.lat,steps[steps.length - 1].end_location.lng]]);
+	 map.zoomOut();
+	 
+	 $("goButton").css({"display":"block"});
+	
  }
 function buildRoute(fromLatLng, toLatLng, on_finish){
 	var from = fromLatLng.lat + "," + fromLatLng.lng;
@@ -122,11 +120,11 @@ function buildRoute(fromLatLng, toLatLng, on_finish){
 	type : "json",
 	method : "GET",
 	url : gurl
-   }).done(function(response){
+    }).done(function(response){
 	   routeApiResult(response,on_finish);
-   }).fail(function(err) {
-		console.log(err);
+    }).fail(function(err) {
+	   console.log(err);
 	}
-		 	);
+    );
 }
 
