@@ -1,111 +1,45 @@
-var serviceApplicationId = "BW08vTW8wW.bluetoothleservice";
-var remotePort;
-
-
-function setAdv()
-{
-	remotePort.sendMessage([{
-		key : "command",
-		value : "setAdv"
-	} , 
-	{
-		key: "lat",
-		value: "123.434235"
-	} ,
-	{
-		key: "lng",
-		value: "321.434235"
-	},
-	{
-		key: "stamp",
-		value: "229"
-	}]);
-}
-
-function stopAdv()
-{
-	remotePort.sendMessage([{
-		key : "command",
-		value : "stopAdv"
-	}]);
-}
-
-function startScan()
-{
-	remotePort.sendMessage([ {
-		key : "command",
-		value : "startScan"
-	} ]);
-}
-
-function stopScan()
-{
-	remotePort.sendMessage([ {
-		key : "command",
-		value : "stopScan"
-	} ]);
-}
-
-function getMsg(data, replyPort) 
-{
-	for (var i = 0; i < data.length; i++) {
-		console.log("key:" + data[i].key + " / value:" + data[i].value);
-	}
-	if (replyPort) {
-		console.log("replyPort given: " + replyPort.messagePortName);
-	}
-}
-
-tizen.application.launch(serviceApplicationId, function() {
-		console.log("Service started");
-		
-		setTimeout(function(){
-			console.log("RemotePort");
-			remotePort = tizen.messageport.requestRemoteMessagePort(serviceApplicationId, "BLE_NATIVE");
-		}, 1000);
-		
-	}, function() {
-		console.error("Service failed");
-	});
-
-
 window.onload = function() {
-	console.log("ONLOAD");
+	// TODO:: Do your initialization job
 
-	var localPort = tizen.messageport.requestLocalMessagePort("BLE_WEB");
+	// add eventListener for tizenhwkey
+	window
+			.addEventListener(
+					'tizenhwkey',
+					function(ev) {
+						if (ev.keyName !== "back")
+							return;
 
-	var localPortWatchId = localPort.addMessagePortListener(getMsg);
+						var page = document
+								.getElementsByClassName('ui-page-active')[0], pageid = page ? page.id
+								: "";
 
-	$("#scan").click(function() {
-		console.log("CLICK");
-		console.log(remotePort);
-		startScan();
-	});
-	
-	$("#stopscan").click(function(){
-		console.log("CLICK");
-		console.log(remotePort);
-		stopScan();
-	});
+						switch (pageid) {
+						case "mainPage":
+							console.log("pop from main, exiting");
+							tizen.application.getCurrentApplication().exit();
+							break;
+						case "menuPage":
+							console.log("pop from menu to mainPage");
+							tau.changePage("#mainPage");
+							break;
+						case "routesMain":
+							console.log("pop from routes main to menuPage");
+							tau.changePage("#menuPage");
+							break;
 
-	$("#adv").click(function() {
-		console.log("CLICK");
+						case "searchByAddressPage":
+							console
+									.log("pop from searchByAddressPage main to menuPage");
+							tau.changePage("#menuPage");
+							break;
+						default:
+							console.log("BACK KEY STATE IS UNPREDICTABLE: " + pageid);
 
-		console.log(remotePort);
-		setAdv();
-	});
-	
-	$("#stopadv").click(function(){
-		stopAdv();
-	});
-	
+						}
 
-    // add eventListener for tizenhwkey
-    document.addEventListener('tizenhwkey', function(e) {
-        if (e.keyName === "back") {
-            try {
-                tizen.application.getCurrentApplication().exit();
-            } catch (ignore) {}
-        }
-    });
+					});
+
 };
+function googleInit() {
+	console.log("google was inited");
+}

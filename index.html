@@ -2,24 +2,66 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, user-scalable=no" />
+
 <meta name="description" content="Digital Watch Application" />
 <title>Digital Watch</title>
+<link rel="stylesheet" media="all and (-tizen-geometric-shape: circle)"
+	href="lib/tau/wearable/theme/default/tau.circle.min.css">
+<link rel="stylesheet" href="lib/tau/wearable/theme/default/tau.min.css">
+<script type="text/javascript" src="lib/tau/wearable/js/tau.min.js"></script>
+
+
 <link rel="stylesheet" type="text/css" href="css/style.css" />
-<script src="js/jquery-2.0.0.js"></script>
+
+
 
 </head>
 
 <body>
-	<div class="contents">
-		<button id="scan" style="width: 250px; height: 150px;">start scan</button>
-		<button id="stopscan" style="width: 250px; height: 150px;">stop scan</button>
-		<button id="adv" style="width: 250px; height: 150px;">set adv</button>
-		<button id="stopadv" style="width: 250px; height: 150px;">stop adv</button>
-	</div>
+	<div id="mainPage" class="ui-page ui-page-active">
+		<div class="ui-content">
+			<div id="mmm"
+				style="position: absolute; top: 0px; left: 0px; width: 360px; height: 360px;"></div>
+			<button type="button" class="ui-more" id="menuButton"></button>
+		</div>
+		<button class="ui-btn" id="goButton" style='display: none'>Go</button>
 
-<script src="js/main.js"></script>
+	</div>
+	<div id="menuPage" class="ui-page">
+		<div id="menuSelector" class="ui-selector">
+			<div class="ui-item show-icon" data-title="Back"></div>
+			<div class="ui-item human-icon" data-title="Search"></div>
+			<div class="ui-item delete-icon" data-title="Routes"></div>
+		</div>
+	</div>
+	<div id="routesMain" class="ui-page">
+		<div class="ui-content">
+		<table class="addrFieldsTable">
+			<tr>
+				<td><input class="addrInputField"  type="text" id="addrInputA" placeholder="from?" /></td>
+				<td class="buttonWithImageCell"><div id="geoInputA" class=locationImage></div></td>
+			</tr>
+			<tr>
+				<td><input class="addrInputField" type="text" id="addrInputB" placeholder="where?" /></td>
+				<td class="buttonWithImageCell"><div id="geoInputB" class="locationImage"></div></td>
+			</tr>
+		</table>
+		</div>
+	</div>
+	<div id="searchByAddressPage" class="ui-page">
+		<div class="ui-header">
+			<h2 class="ui-title">Address</h2>
+		</div>
+		<div class="ui-content">
+			<input type="text" class="addrInput" placeholder="Enter text" />
+		</div>
+
+	</div>
+	<script type="text/javascript" src="lib/jquery2.0.min.js"></script>
+	<script src="js/maps.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/menu.js"></script>
 </body>
 
 </html>
