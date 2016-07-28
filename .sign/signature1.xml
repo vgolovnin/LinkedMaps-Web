@@ -4,7 +4,7 @@
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>tEvVm0wcdclc3k9m3ESd6xSwTqQjPnCKFh1TiOKK1/o=</DigestValue>
+<DigestValue>XRhRIiJlr8WCafsPDgQ6Od+nyAi+1iEVb/07C9MR8V4=</DigestValue>
 </Reference>
 <Reference URI="bin%2Fbluetoothleservice">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -32,7 +32,11 @@
 </Reference>
 <Reference URI="res%2Fwgt%2Findex.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>WlhWdm/PawAJAKnxfw+is3ZAO9HgjGmeHdl6kq7YSMw=</DigestValue>
+<DigestValue>vcmpv5l8AkCgxM/FLU+FMv9SnHZdw1Ip+V4UuTJ9OZ4=</DigestValue>
+</Reference>
+<Reference URI="res%2Fwgt%2Fjs%2FbluetoothScan.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>MAGexMs6YICGIDrT/B3btSbUWGgU+MSAqMRUTlLLcUo=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Fjqueryrotate.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -40,11 +44,11 @@
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Fmain.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>sUOts8iSJwYOwuZSdk2JfKE3EwhLEbwjCBXs//tjX04=</DigestValue>
+<DigestValue>47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Fmaps.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>2UpbLTlYNdybr2XJY3oPXRsaLoKOGZPvFo0kQ0PIi+g=</DigestValue>
+<DigestValue>EfFhnCDEq0465SQY1OZrKpl8VzslB45kQ7LhSRnEDLw=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Fmenu.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -1055,11 +1059,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-KSJSqe91e9e+y9KsKknbrc8YR+p60J4pKBlC+cgI8/EDVRmwrP9h6mwtTsjIn6OsXbjG+h6R0L1N
-eDxJCPmvgNxS6yBAATLIxCuNBBNF59Tr21/YyzeXdsHih1ubs2fu+0VKCd18McqsyxdDGSPRrmwM
-LxybZm4rlFqqW2HOyBT47r2SYlaat5cwfw0VjXcPWKG278bjebyCO3nr3FPJ2czMLbPlWhJO9ra+
-amIuw/YbsXXCQTaqnzryN+r9TqjhxDEWNHY0Z70DStGmHS6sVvedfcpAH5dLNHF39HMEHczIz25v
-ctz0KF3CoSI15I9AxQaKR3sInpA1g6agItfPwg==
+H2qbvKDkqjWeozqZ0u3VxvSjbVEwhnUW+DgKJFsylVCeCP5afXsIr1UDalJ7pq+LGlufVfjI8Wuc
+m4tpOCt9+IvxQKYEDwfK3bEoHwCtwh88Km8jq8y4sTCzWCJLo+HZXbYuz5I3atEFv9KCETN9jbqJ
+yzMfxteMXXfb9QVDqINsG4qiHaNwm8d+ubid7BHZxhA52PeVR0BhWHOcmEIB+uCYRY6qsfCf0Ktd
+JNZ7yO9f3bEPbn5s5scue2D0N2nzvzyBhvoxyBvzDtl2LAw4KLyz+9wDN12mxudnxjmosZVXgnc0
+B+RaOFM5KWhyzrro8RKdcvuo/GcN375K3wkFvA==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

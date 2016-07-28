@@ -127,4 +127,18 @@ function buildRoute(fromLatLng, toLatLng, on_finish){
 	}
     );
 }
+var currentPositionMarker = null;
+function onGeoRecieved(latlng){
+  if(currentPositionMarker === null){
+	  currentPositionMarker = 
+	  
+	  currentPositionMarker = DG.marker(latlng, {
+           icon: DG.icon({
+               		iconUrl: 'img/pos.png',
+               		iconSize: [48, 48]
+           	 	 })
+      }).addTo(map);
+  } else 
+	  currentPositionMarker.setLatLng(latlng);
+}
 

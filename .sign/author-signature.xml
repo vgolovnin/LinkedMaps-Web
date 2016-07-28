@@ -28,7 +28,11 @@
 </Reference>
 <Reference URI="res%2Fwgt%2Findex.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>WlhWdm/PawAJAKnxfw+is3ZAO9HgjGmeHdl6kq7YSMw=</DigestValue>
+<DigestValue>vcmpv5l8AkCgxM/FLU+FMv9SnHZdw1Ip+V4UuTJ9OZ4=</DigestValue>
+</Reference>
+<Reference URI="res%2Fwgt%2Fjs%2FbluetoothScan.js">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>MAGexMs6YICGIDrT/B3btSbUWGgU+MSAqMRUTlLLcUo=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Fjqueryrotate.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -36,11 +40,11 @@
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Fmain.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>sUOts8iSJwYOwuZSdk2JfKE3EwhLEbwjCBXs//tjX04=</DigestValue>
+<DigestValue>47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Fmaps.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>2UpbLTlYNdybr2XJY3oPXRsaLoKOGZPvFo0kQ0PIi+g=</DigestValue>
+<DigestValue>EfFhnCDEq0465SQY1OZrKpl8VzslB45kQ7LhSRnEDLw=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Fmenu.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -1051,11 +1055,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-1ybDF56zznbe6AA1Rq7Bfh0N8m6JHo2hWQO6Rfrtla71y9OOTnCa9o5Tt/fHIvWniToiSIMA0Y3P
-92OZDZLdyiOz6ldwTfMJpQJFmF4SrzOoQDfRHEEI3CltA3iYZHGxSGPZMC4HL99CsteBclD+9Do6
-wVQSTRze0NgJQnSKktTX8BWAvo/sif6x9C6M2mS9aUgfE6wLmelNnGtIfnj4iT3x0ClOlknKj8n4
-EAEVr8Kra1bp7Wm8CcL9xb7r7pz/sbBZNv6vg1CeJ9a9uutXmKQUAtCfHPCAphagpp2V8SoDRIeG
-4RMv2Uv8auNUTnisz5SlpvBY4z3IiBZh3emdCw==
+Vj61RyQ9MVPsyVmB+432uUiSaY87PU1BqJt+gCNqqCsNRVSTBpi7i/Zn1csf27uabPstjZx49ejd
+XqtNRWhp01JaeIaw11raJLdrHQO0yK/csl+x4SuXn//T0Tc45+Gm9FIl1wIF3nCjuTY4OgCPxQqx
+WXSbNaZQehKKMr8bT/5mGoU+TGXyiUE78FXIcq3jlJKbygocTuiMH+RM1j7wUzD//5BFyoCXD8cT
+wUnB2lrogm7L9kZHK46EbOHfqNxCXoCp+7g275jn2hXMG2wsjYVqs44QRE3jnot/ybn28IZjz5Cj
+T51ahnGKXCeS1WSXAOXonvuagvkETpQjYQPK4w==
 </SignatureValue>
 <KeyInfo>
 <X509Data>
