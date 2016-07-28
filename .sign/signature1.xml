@@ -4,7 +4,7 @@
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>dQHlT0gNQUpwT+NH2AGnrXDsrfdHOheOBr2PawV7a8w=</DigestValue>
+<DigestValue>3RgqXK1Hz+7HpumLoify2DsWd4KuwhtK+fyWZy6Ql2U=</DigestValue>
 </Reference>
 <Reference URI="bin%2Fbluetoothleservice">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -20,7 +20,7 @@
 </Reference>
 <Reference URI="res%2Fwgt%2Fcss%2Fstyle.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>E5o3+Eq0n48Pwkv1OuHipagE9x4BPNBMBW9Qj5NWK94=</DigestValue>
+<DigestValue>trxVu/Xodn3qKXsVXv+xXuML2K7RP8KqLM607RY29iM=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2Ficon.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -32,7 +32,7 @@
 </Reference>
 <Reference URI="res%2Fwgt%2Findex.html">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>1LCnsKjj7I3syqDB3olkPdf69S/6XVRJUU7YLrQDIzY=</DigestValue>
+<DigestValue>WlhWdm/PawAJAKnxfw+is3ZAO9HgjGmeHdl6kq7YSMw=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Fjqueryrotate.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -40,15 +40,15 @@
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Fmain.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>/Ttf+PB+tjS7+mbU0K9jrJNwkaCRn45le1MBr3BfOEU=</DigestValue>
+<DigestValue>sUOts8iSJwYOwuZSdk2JfKE3EwhLEbwjCBXs//tjX04=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Fmaps.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>iClSKG4s3VgikgVhMqKC+8co10oGb8p877rdiwBvePc=</DigestValue>
+<DigestValue>lXWEqgsoLKvycs2GEY5V/GiNOzfTdE8hH/Zj/JP0Ses=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2Fjs%2Fmenu.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>roZ9sexobxpRrSUd8YuOFe6mkU1cVpimTrB07C1aDNE=</DigestValue>
+<DigestValue>nIJh4wCh+FBZIG8DCozvpiuQKfPI2Y/N2bVQCuHyzZI=</DigestValue>
 </Reference>
 <Reference URI="res%2Fwgt%2Flib%2Fjquery2.0.min.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -1055,11 +1055,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-QAYO6bQpIhWDInHotH7bU0Jc3iSH/RuGuqoA9wAaYVq7aoAmBXRMy7BD61p5rWVTw8vKUUOO4gif
-z+f0VIhq6CGUZagD2rjj7ZlQrpHo/0XAa4KcB3NnzrDq6osk9Igm8IV7uVwCL7PX40FHu3CBn65L
-vNO3Sa7Dadm0lyLA6f+UcCG+LA7zHJnC3evxzcf1TYfREWIeY5cDHdM5sUqbf5+npn3SufpEM0Ze
-6npApOWFfeEbfGtDQ2NrEkwyPgcY3v1n++jvWRskXHAXaK9LhkTqrXTMNYNCqepHe2CXmK1Z3Rj1
-ITo67/lqVVYNF7qakSvs2cl0Roycju/sj9qtrA==
+CE6aVx4XqFQ5y8L8ZvNm8JU1RghFzbOGQ4biwgJw+3VkpztmMETxqrEtV34uiolBki6V9Tsbi0fY
+BwhTr+TeRDIbaol1TFJJzRrr1UV4G5O/QnXhRPiz7/bUKZP+NqFcs1VeZ+umhmErreUB8mCMY4kl
+s8qvm6AJ6MoEy7WaPfmeCu/Iz+AIW3bVEnDfX2nClQZRppRy0aRDRFMEZkLWQOlBR9A5RZJ1xuW2
+Zvz9sSYsRdfn15QbGh9YVk1IV2eWQitZ1wnN6ohLoeH7wPsFkqGAJ/XmExXt6rdZSzqlqYnAXJ9D
+Nacn47UKK99gut2kDd+yDkZiKDtibojcuQEWig==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

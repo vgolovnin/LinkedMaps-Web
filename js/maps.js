@@ -23,66 +23,66 @@ DG.then(function() {
 		console.log(e.message);
 		// alert("Location access denied.");
 	});
-	map.on('click', function(e){
-		console.log("clicked " + e.latlng.lat + " "+ e.latlng.lng);
-	});
+ 
+	 
+	console.log(map);
+	 
+
+	addLongTapListener();
+	
+});
+function addLongTapListener(){
 	map.on('contextmenu', function(e){
 		var newMarker = DG.marker([ e.latlng.lat, e.latlng.lng ]);
 		newMarker.addTo(map);
+		markers.push(newMarker);
+		
 		if (markers.length ==2){
 			 
 			markers[0].remove();
 			markers[1].remove();
 			markers = [];
-		
 		}
-		markers.push(newMarker);
 		
 		
 		if (markers.length == 2){ 
 			
-			var m1 = markers[0], m2 = markers[1],
-			from = m1.getLatLng().lat + "," + m1.getLatLng().lng,
-			to = m2.getLatLng().lat + "," + m2.getLatLng().lng,
-			gurl = "https://maps.googleapis.com/maps/api/directions/json?origin="+from+"&destination="+to+"&language=ru&region=ru&key=AIzaSyCwvaliAwCgmY4X2aD6ITITkzZ8tGYkjGU"
-			console.log("sending query " + gurl);
-			$.ajax({
-			type : "json",
-			method : "GET",
-			url : gurl
-		   }).done(routeApiResult).fail(function(err) {
-				console.log(err);
-			}
-				 	);
+			var m1 = markers[0], m2 = markers[1];
 			
+			buildRoute(m1.getLatLng(),m2.getLatLng());
 			
 			
 		} 
 		
 		console.log("contextmenu " + e.latlng.lat + " "+ e.latlng.lng);
 	});
-});
-function routeApiResult(response){
+}
+function routeApiResult(response, on_finish){
 	 var leg = response.routes[0].legs[0],
- 	 steps = leg.steps
-	drawRoute(steps);
-//	var defVect = [0,1];
-//	var curVect = [steps[0].end_location.lat - steps[0].start_location.lat , steps[0].end_location.lng - steps[0].start_location.lng];
-//	var scalarMult = curVect[1]; // defVect[0] == 0 && defVect[1] ==1
-//	function lenVect(vect){
-//		return Math.sqrt(vect[0]*vect[0] + vect[1] * vect[1]);
-//	}
-//	console.log(lenVect(curVect));
-//	console.log(scalarMult, (lenVect(curVect) * lenVect(defVect)));
-// 	var angle = (Math.acos(scalarMult / (lenVect(curVect))) * 180) / Math.PI;
-//	console.log(angle);
+ 	 steps = leg.steps;
+	 clearMap();
+	 drawRoute(steps);
+	 if (on_finish !== null && typeof on_finish !== 'undefined')
+		 on_finish();
+	 
+// var defVect = [0,1];
+// var curVect = [steps[0].end_location.lat - steps[0].start_location.lat ,
+// steps[0].end_location.lng - steps[0].start_location.lng];
+// var scalarMult = curVect[1]; // defVect[0] == 0 && defVect[1] ==1
+// function lenVect(vect){
+// return Math.sqrt(vect[0]*vect[0] + vect[1] * vect[1]);
+// }
+// console.log(lenVect(curVect));
+// console.log(scalarMult, (lenVect(curVect) * lenVect(defVect)));
+// var angle = (Math.acos(scalarMult / (lenVect(curVect))) * 180) / Math.PI;
+// console.log(angle);
 //	
 //
-//	rotateMap(angle);
+// rotateMap(angle);
 
 	
 }
-	
+ 
 function rotateMap(angle){
 	var mapTag = document.getElementById("mmm");
 	mapTag.style.webkitTransform = 'rotate('+angle+'deg)';
@@ -92,8 +92,6 @@ function rotateMap(angle){
 }	
 function drawRoute(steps){
 	 
-	 if (buildedRoute !== null) 
-		 buildedRoute.remove();
 	 buildedRoute = DG.polyline([]).addTo(map);
 	 for (var i = 0; i < steps.length; i++){
 		 buildedRoute.addLatLng([steps[i].start_location.lat,steps[i].start_location.lng]);
@@ -103,12 +101,32 @@ function drawRoute(steps){
  
 	 map.fitBounds([[steps[0].start_location.lat, steps[0].start_location.lng], [steps[steps.length - 1].end_location.lat,steps[steps.length - 1].end_location.lng]]);
 	 map.zoomOut();
-	 markers[0].setLatLng([steps[0].start_location.lat, steps[0].start_location.lng]);
-	 markers[0].setLatLng([steps[steps.length - 1].end_location.lat,steps[steps.length - 1].end_location.lng]);
+	
 
      console.log(steps)
 }
 function buildRoute(steps){
 	drawRoute(steps);
+	var m1 =DG.marker([ e.latitude, e.longitude ]), 
+	    m2 = DG.marker([steps[steps.length - 1].end_location.lat,steps[steps.length - 1].end_location.lng]);
+	 markers.push(m1,m2);
+	 m1.addTo(map);
+	 m2.addTo(map); 
+ }
+function buildRoute(fromLatLng, toLatLng, on_finish){
+	var from = fromLatLng.lat + "," + fromLatLng.lng;
+	to = toLatLng.lat + "," + toLatLng.lng,
+	gurl = "https://maps.googleapis.com/maps/api/directions/json?origin="+from+"&destination="+to+"&language=ru&region=ru&key=AIzaSyCwvaliAwCgmY4X2aD6ITITkzZ8tGYkjGU"
+	console.log("sending query " + gurl);
+	$.ajax({
+	type : "json",
+	method : "GET",
+	url : gurl
+   }).done(function(response){
+	   routeApiResult(response,on_finish);
+   }).fail(function(err) {
+		console.log(err);
+	}
+		 	);
 }
 
