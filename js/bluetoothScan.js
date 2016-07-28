@@ -22,14 +22,6 @@ function setAdv(command, lat, lng, stamp)
 	}]);
 }
 
-function stopAdv()
-{
-	remotePort.sendMessage([{
-		key : "command",
-		value : "stopAdv"
-	}]);
-}
-
 function startScan()
 {
 	remotePort.sendMessage([ {
@@ -48,6 +40,7 @@ function stopScan()
 var lastStampRecieved = -1;
 var routeFromPhone = {"pointA": null, 
 					  "pointB" : null};
+
 function getMsg(data, replyPort) 
 {
 	var msg = {}
@@ -107,41 +100,5 @@ tizen.application.launch(serviceApplicationId, function() {
 
 window.onload = function() {
 	console.log("ONLOAD");
-
-	var localPort = tizen.messageport.requestLocalMessagePort("BLE_WEB");
-
-	var localPortWatchId = localPort.addMessagePortListener(getMsg);
-
-	$("#scan").click(function() {
-		console.log("CLICK");
-		console.log(remotePort);
-		startScan();
-	});
 	
-	$("#stopscan").click(function(){
-		console.log("CLICK");
-		console.log(remotePort);
-		stopScan();
-	});
-
-	$("#adv").click(function() {
-		console.log("CLICK");
-
-		console.log(remotePort);
-		setAdv();
-	});
-	
-	$("#stopadv").click(function(){
-		stopAdv();
-	});
-	
-
-    // add eventListener for tizenhwkey
-    document.addEventListener('tizenhwkey', function(e) {
-        if (e.keyName === "back") {
-            try {
-                tizen.application.getCurrentApplication().exit();
-            } catch (ignore) {}
-        }
-    });
 };
