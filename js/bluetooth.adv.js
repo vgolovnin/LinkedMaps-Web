@@ -3,7 +3,7 @@ var remotePort;
 
 
 	var localPort = tizen.messageport.requestLocalMessagePort("BLE_WEB");	
-	var serviceApplicationId = "YBY748U6ps.bluetoothleservice";
+	var serviceApplicationId = "BW08vTW8wW.bluetoothleservice";
 	
 	tizen.application.launch(serviceApplicationId, function(){
 		console.log("Service started");

@@ -7,5 +7,9 @@
     </platforms>
     <package>
         <blacklist/>
+        <resFallback autoGen="true"/>
+        <subProjects>
+            <tizenProject project="BLEService" style="native main"/>
+        </subProjects>
     </package>
 </tproject>
