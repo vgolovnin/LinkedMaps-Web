@@ -1,6 +1,5 @@
 function getAddresByLatLng(latlng, callback) {
-	https:
-	// maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=YOUR_API_KEY
+  // maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=YOUR_API_KEY
 	var gurl = "https://maps.googleapis.com/maps/api/geocode/json?latlng="
 			+ latlng.lat + "," + latlng.lng
 			+ "&language=ru&key=AIzaSyCwvaliAwCgmY4X2aD6ITITkzZ8tGYkjGU";
