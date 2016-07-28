@@ -66,6 +66,7 @@ function selectGeoByClick(callback) {
 	map.off('click');
 	map.on('click', function(e) {
 		getAddresByLatLng(e.latlng, callback);
+		map.off('click');
 	});
 	tau.changePage("#mainPage");
 }

@@ -29,9 +29,7 @@ $("#mainPage").on("pagebeforehide", function() {
 	console.log("HIDING MAIN PAGE");
 	document.removeEventListener("rotarydetent", mapRotaryListener);
 	// if (AppState === STATE.SELECTING_ROUTE) {
-	$("#moreButton").css({
-		"display" : "block"
-	});
+	$("#moreButton").show();
 	// }
 });
 
