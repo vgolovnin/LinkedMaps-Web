@@ -1,6 +1,49 @@
 var serviceApplicationId = "BW08vTW8wW.bluetoothleservice";
 var remotePort;
 
+
+function setAdv()
+{
+	remotePort.sendMessage([{
+		key : "command",
+		value : "setAdv"
+	} , 
+	{
+		key: "lat",
+		value: "123.434235"
+	} ,
+	{
+		key: "lng",
+		value: "321.434235"
+	}]);
+}
+
+function startScan()
+{
+	remotePort.sendMessage([ {
+		key : "command",
+		value : "startScan"
+	} ]);
+}
+
+function stopScan()
+{
+	remotePort.sendMessage([ {
+		key : "command",
+		value : "stopScan"
+	} ]);
+}
+
+function getMsg(data, replyPort) 
+{
+	for (var i = 0; i < data.length; i++) {
+		console.log("key:" + data[i].key + " / value:" + data[i].value);
+	}
+	if (replyPort) {
+		console.log("replyPort given: " + replyPort.messagePortName);
+	}
+}
+
 tizen.application.launch(serviceApplicationId, function() {
 		console.log("Service started");
 		setTimeout(function(){
@@ -18,33 +61,25 @@ window.onload = function() {
 
 	var localPort = tizen.messageport.requestLocalMessagePort("BLE_WEB");
 
-	var localPortWatchId = localPort.addMessagePortListener(function(data,
-			replyPort) {
-		for (var i = 0; i < data.length; i++) {
-			console.log("key:" + data[i].key + " / value:" + data[i].value);
-		}
-		if (replyPort) {
-			console.log("replyPort given: " + replyPort.messagePortName);
-		}
-	});
+	var localPortWatchId = localPort.addMessagePortListener(getMsg);
 
 	$("#scan").click(function() {
 		console.log("CLICK");
 		console.log(remotePort);
-		remotePort.sendMessage([ {
-			key : "command",
-			value : "startScan"
-		} ]);
+		startScan();
+	});
+	
+	$("#stopscan").click(function(){
+		console.log("CLICK");
+		console.log(remotePort);
+		stopScan();
 	});
 
 	$("#adv").click(function() {
 		console.log("CLICK");
 
 		console.log(remotePort);
-		remotePort.sendMessage([ {
-			key : "command",
-			value : "setAdv"
-		} ]);
+		setAdv();
 	});
 
     // add eventListener for tizenhwkey
