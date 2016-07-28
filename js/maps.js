@@ -42,49 +42,20 @@ function addLongTapListener(){
 			var m1 = markers[0], m2 = markers[1];
 			
 			buildRoute(m1.getLatLng(),m2.getLatLng());
-			
-			
+		
 		} 
 		
 		console.log("contextmenu " + e.latlng.lat + " "+ e.latlng.lng);
 	});
 }
+///INVOKE ONLY IN MAIN PAGE 
 function routeApiResult(response, on_finish){
 	 var leg = response.routes[0].legs[0],
  	 steps = leg.steps;
 	 
-	 drawRoute(steps);
-	 if (on_finish !== null && typeof on_finish !== 'undefined')
-		 on_finish();
 	 
-// var defVect = [0,1];
-// var curVect = [steps[0].end_location.lat - steps[0].start_location.lat ,
-// steps[0].end_location.lng - steps[0].start_location.lng];
-// var scalarMult = curVect[1]; // defVect[0] == 0 && defVect[1] ==1
-// function lenVect(vect){
-// return Math.sqrt(vect[0]*vect[0] + vect[1] * vect[1]);
-// }
-// console.log(lenVect(curVect));
-// console.log(scalarMult, (lenVect(curVect) * lenVect(defVect)));
-// var angle = (Math.acos(scalarMult / (lenVect(curVect))) * 180) / Math.PI;
-// console.log(angle);
-//	
-//
-// rotateMap(angle);
-
-	
-}
- 
-function rotateMap(angle){
-	var mapTag = document.getElementById("mmm");
-	mapTag.style.webkitTransform = 'rotate('+angle+'deg)';
-	console.log("rotating on angle " + angle);
-	$("#mmm").css({"webkit-transform": "rotate("+angle+"deg)"});
-	// $("mmm").rotate(angle);
-}	
-function drawRoute(steps){
-	 
-	
+	 clearMap();
+		
 	 buildedRoute = DG.polyline([]).addTo(map);
 	 for (var i = 0; i < steps.length; i++){
 		 buildedRoute.addLatLng([steps[i].start_location.lat,steps[i].start_location.lng]);
@@ -93,12 +64,6 @@ function drawRoute(steps){
 	 }
  
 	
-
-     console.log(steps)
-}
-function buildRoute(steps){
-	clearMap();
-	drawRoute(steps);
 	var m1 = DG.marker([steps[0].start_location.lat,steps[0].start_location.lng]), 
 	    m2 = DG.marker([steps[steps.length - 1].end_location.lat,steps[steps.length - 1].end_location.lng]);
 	 markers.push(m1,m2);
@@ -108,26 +73,19 @@ function buildRoute(steps){
 	 map.fitBounds([[steps[0].start_location.lat, steps[0].start_location.lng], [steps[steps.length - 1].end_location.lat,steps[steps.length - 1].end_location.lng]]);
 	 map.zoomOut();
 	 
-	 $("goButton").css({"display":"block"});
-	
- }
-function buildRoute(fromLatLng, toLatLng, on_finish){
-	var from = fromLatLng.lat + "," + fromLatLng.lng;
-	to = toLatLng.lat + "," + toLatLng.lng,
-	gurl = "https://maps.googleapis.com/maps/api/directions/json?origin="+from+"&destination="+to+"&language=ru&region=ru&key=AIzaSyCwvaliAwCgmY4X2aD6ITITkzZ8tGYkjGU"
-	console.log("sending query " + gurl);
-	$.ajax({
-	type : "json",
-	method : "GET",
-	url : gurl
-    }).done(function(response){
-	   routeApiResult(response,on_finish);
-    }).fail(function(err) {
-	   console.log(err);
-	}
-    );
+	 $("#goButton").css({"display":"block"});
+	 
+	 
+	 
+	 if (on_finish !== null && typeof on_finish !== 'undefined')
+		 on_finish();
 }
+
+
+
+
 var currentPositionMarker = null;
+
 function onGeoRecieved(latlng){
   if(currentPositionMarker === null){
 	  currentPositionMarker = 
@@ -143,4 +101,16 @@ function onGeoRecieved(latlng){
   
   map.panTo(currentPositionMarker.getLatLng());
 }
+function clearMap() {
+	if (markers.length > 0) {
+		for (var i = 0; i < markers.length; i++) {
+			markers[i].remove();
+		}
+		markers = [];
+	}
+	if (buildedRoute !== null) {
+		buildedRoute.remove();
+		buildedRoute = null;
+	}
 
+}
