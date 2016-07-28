@@ -3,6 +3,7 @@
 	<name>MapsTest</name>
 	<comment></comment>
 	<projects>
+		<project>BLEService</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
