@@ -1,5 +1,7 @@
 window.onload = function() {
-	// TODO:: Do your initialization job
+	
+	var localPort = tizen.messageport.requestLocalMessagePort("BLE_WEB");
+	var localPortWatchId = localPort.addMessagePortListener(getMsg); // BluetoothScan.js
 
 	// add eventListener for tizenhwkey
 	window
