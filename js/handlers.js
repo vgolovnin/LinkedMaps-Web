@@ -1,5 +1,12 @@
-handler.addEventListener("click", menuButtonClickedHandler);
-page.addEventListener("pagebeforeshow", function() {
+var selector = document.getElementById("menuSelector");
+
+$("#menuButton").on("click", function(){
+	console.log("menu clicked");
+	document.removeEventListener("rotarydetent", mapRotaryListener);
+
+	tau.changePage(menuPage);
+});
+$("#mainPage").on("pagebeforeshow", function() {
 	console.log("showing MAIN PAGE");
 
 	document.addEventListener("rotarydetent", mapRotaryListener);
@@ -18,7 +25,7 @@ page.addEventListener("pagebeforeshow", function() {
 		});
 
 });
-page.addEventListener("pagebeforehide", function() {
+$("#mainPage").on("pagebeforehide", function() {
 	console.log("HIDING MAIN PAGE");
 	document.removeEventListener("rotarydetent", mapRotaryListener);
 	// if (AppState === STATE.SELECTING_ROUTE) {
@@ -28,7 +35,7 @@ page.addEventListener("pagebeforehide", function() {
 	// }
 });
 
-menuPage.addEventListener("pagebeforeshow", function() {
+$("#menuPage").on("pagebeforeshow", function() {
 
 	clickBound = menuItemClickedHandler.bind(null);
 	tau.widget.Selector(selector);
@@ -43,7 +50,7 @@ menuPage.addEventListener("pagebeforeshow", function() {
 	 * itemRadius : radius }); }
 	 */
 });
-menuPage.addEventListener("pagebeforehide", function() {
+$("#menuPage").on("pagebeforehide", function() {
 	selector.removeEventListener("click", clickBound, false);
 
 	/*
@@ -51,10 +58,10 @@ menuPage.addEventListener("pagebeforehide", function() {
 	 * (tau.support.shape.circle) { selector.destroy(); }
 	 */
 });
-routesMain.addEventListener("pagebeforeshow", function() {
+$("#routesMain").on("pagebeforeshow", function() {
 	console.log("openning page routes main");
 });
-routesMain.addEventListener("pagebeforehide", function() {
+$("#routesMain").on("pagebeforehide", function() {
 	console.log("hiding page routes main");
 });
 
