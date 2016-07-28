@@ -23,7 +23,7 @@ DG.then(function() {
 		console.log(e.message);
 		// alert("Location access denied.");
 	});
- 
+	startScan();
 	 
 	console.log(map);
 	 
@@ -140,5 +140,7 @@ function onGeoRecieved(latlng){
       }).addTo(map);
   } else 
 	  currentPositionMarker.setLatLng(latlng);
+  
+  map.panTo(currentPositionMarker.getLatLng());
 }
 

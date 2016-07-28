@@ -45,12 +45,48 @@ function stopScan()
 		value : "stopScan"
 	} ]);
 }
-
+var lastStampRecieved = -1;
+var routeFromPhone = {"pointA": null, 
+					  "pointB" : null};
 function getMsg(data, replyPort) 
 {
+	var msg = {}
+	console.log("MESSSAGE WAS RECIEVED");
+	
 	for (var i = 0; i < data.length; i++) {
-		console.log("key:" + data[i].key + " / value:" + data[i].value);
+		msg[data[i].key] =  data[i].value;	
 	}
+	console.log(msg);
+	if (lastStampRecieved===msg.stamp) 
+		return;
+	
+	switch(msg.command){
+	case "0":
+		onGeoRecieved([parseFloat(msg.lat), parseFloat(msg.lng)]);
+		break;
+	case "1":
+		routeFromPhone.pointA = { lat: parseFloat(msg.lat), lng: parseFloat(msg.lng) } ;
+		break;
+	case "2":
+		routeFromPhone.pointB = { lat: parseFloat(msg.lat), lng: parseFloat(msg.lng) };
+		break;
+	case "3": 
+		var page = document
+		.getElementsByClassName('ui-page-active')[0], pageid = page ? page.id
+		: "";
+		console.log("BUILDING ROUTE");
+		buildRoute(routeFromPhone.pointA, routeFromPhone.pointB);
+		navigator.vibrate(1500);
+		if (page !== "mainPage")
+			tau.changePage("#mainPage");
+		
+		break;
+	}
+
+ 
+	lastStampRecieved = msg.stamp;
+	
+	
 	if (replyPort) {
 		console.log("replyPort given: " + replyPort.messagePortName);
 	}
