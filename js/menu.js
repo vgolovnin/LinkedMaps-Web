@@ -1,11 +1,3 @@
-var page = document.querySelector("#mainPage"), handler = document
-		.querySelector("#menuButton"), menuPage = document
-		.querySelector("#menuPage"), selector = document
-		.getElementById("menuSelector"), clickBound, routesPopup = document
-		.querySelector("#routesPopup"), routesMain = document
-		.querySelector("#routesMain"), searchByAddressPage = document
-		.querySelector("#searchByAddressPage"),
-
 STATE = {
 	MAIN_MAP : 1,
 	SELECTING_ROUTE : 2,
@@ -17,12 +9,6 @@ STATE = {
  * pagebeforeshow event handler Do preparatory works and adds event listeners
  */
 
-function menuButtonClickedHandler() {
-	console.log("menu clicked");
-	document.removeEventListener("rotarydetent", mapRotaryListener);
-
-	tau.changePage(menuPage);
-}
 function menuItemClickedHandler(event) {
 	var target = event.target;
 
