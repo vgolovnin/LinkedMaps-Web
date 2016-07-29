@@ -60,6 +60,46 @@ function routeToMarker(){
 	buildRoute(currentPositionMarker.getLatLng(), pinMarker.getLatLng());
 	return false;
 }
+
+function fakerSegment(start_location, end_location, duration, j)
+{
+	if (j < 10)
+	{
+		setTimeout(function(){
+			var current_location = {};
+			current_location.lat = start_location.lat + (end_location.lat - start_location.lat) * (j/10.0);
+			current_location.lng = start_location.lng + (end_location.lng - start_location.lng) * (j/10.0);
+			console.log("go ", current_location);
+			onGeoRecieved(current_location);
+			fakerSegment(start_location, end_location, duration, j+1);
+		}, duration);
+	}
+}
+
+function faker(steps, i)
+{
+	if (i < steps.length)
+	{
+		var duration = steps[i].duration.value;
+		console.log([steps[i].start_location.lat,steps[i].start_location.lng])
+		fakerSegment(steps[i].start_location, steps[i].end_location, duration , 0);
+		
+		setTimeout(function(){
+			console.log("waited for ", duration);
+			// IN THE NODE
+			faker(steps, i+1);
+		}, duration * 11 + 200);
+	}
+		
+}
+
+function startFakeNavigation(steps)
+{
+	faker(steps, 0);
+}
+
+
+
 ///INVOKE ONLY IN MAIN PAGE 
 function routeApiResult(response, on_finish){
 	 var leg = response.routes[0].legs[0],
@@ -87,7 +127,7 @@ function routeApiResult(response, on_finish){
 	 
 	 $("#goButton").css({"display":"block"});
 	 
-	 
+	 startFakeNavigation(steps);
 	 
 	 if (on_finish !== null && typeof on_finish !== 'undefined')
 		 on_finish();
