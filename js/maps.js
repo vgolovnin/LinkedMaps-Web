@@ -9,19 +9,9 @@ DG.then(function() {
 	map = DG.map('mmm', {
 		center : [ 54.98, 82.89 ],
 		zoom : 13,
-		tap : true
-	});
-	DG.control.location({
-		position : 'topright'
-	}).addTo(map);
-	map.locate({
-		setView : true,
-		watch : true
-	}).on('locationfound', function(e) {
-		DG.marker([ e.latitude, e.longitude ]).addTo(map);
-	}).on('locationerror', function(e) {
-		console.log(e.message);
-		// alert("Location access denied.");
+		tap : true,
+		fullscreenControl: false,
+        zoomControl: false
 	});
 	startScan();
 	 
