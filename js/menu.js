@@ -10,14 +10,6 @@ STATE = {
  * pagebeforeshow event handler Do preparatory works and adds event listeners
  */
 
-function menuItemClickedHandler(event) {
-	var target = event.target;
-
-	if (target.classList.contains("ui-selector-indicator"))
-		menuItemWasSelected(parseInt($("#menuSelector > [data-index]").attr(
-				"data-index")));
-	console.log("clicked menu item");
-}
 
 function mapRotaryListener(ev) {
 	var dir = ev.detail.direction;
@@ -42,24 +34,7 @@ var MENU_ITEMS = {
 	SEARCH : 1,
 	ROUTES : 2
 };
-function menuItemWasSelected(itemIndex) {
-	switch (itemIndex) {
-	case MENU_ITEMS.BACK:
-		closeMenu();
-		break;
-	case MENU_ITEMS.SEARCH:
-		AppState = STATE.SEARCHING_BY_ADDRESS;
-		tau.changePage("#searchByAddressPage");
-		break;
-	case MENU_ITEMS.ROUTES:
-		AppState = STATE.SELECTING_ROUTE;
-		tau.changePage("#routesMain");
-		// tau.openPopup(routesPopup);
 
-		break;
-	}
-	console.log(itemIndex);
-}
 function selectGeoByClick(callback) {
 	clearMap();
 	$("#moreButton").hide();
@@ -78,3 +53,4 @@ function validateRoute() {
 	console.log("validated= " + validated);
 	return validated;
 }
+

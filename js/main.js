@@ -41,8 +41,6 @@ window.onload = function() {
 						}
 
 					});
-	
-
 };
 function googleInit() {
 	console.log("google was inited");

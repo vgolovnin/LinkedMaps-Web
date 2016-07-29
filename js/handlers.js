@@ -3,7 +3,7 @@ var isFake = true;
 $("#menuButton").on("click", function(){
 	console.log("menu clicked");
 	document.removeEventListener("rotarydetent", mapRotaryListener);
-
+	tau.widget.Selector("#menuSelector");
 	tau.changePage(menuPage);
 });
 $("#mainPage").on("pagebeforeshow", function() {
@@ -35,9 +35,9 @@ $("#mainPage").on("pagebeforehide", function() {
 
 $("#menuPage").on("pagebeforeshow", function() {
 
-	clickBound = menuItemClickedHandler.bind(null);
-	tau.widget.Selector(selector);
-	selector.addEventListener("click", clickBound, false);
+	//clickBound = menuItemClickedHandler.bind(null);
+	//tau.widget.Selector(selector);
+	//selector.addEventListener("click", clickBound, false);
 
 	/*
 	 * var radius = window.innerHeight / 2 * 0.8;
@@ -49,7 +49,7 @@ $("#menuPage").on("pagebeforeshow", function() {
 	 */
 });
 $("#menuPage").on("pagebeforehide", function() {
-	selector.removeEventListener("click", clickBound, false);
+	//selector.removeEventListener("click", clickBound, false);
 
 	/*
 	 * handler.removeEventListener("click", clickHandlerBound); if
@@ -94,6 +94,31 @@ $("#buildRouteButton").on("click", function() {
 	}
 });
 $("#nearestSelector").on("selectoritemchange", function(event){
+	console.log(event.title);
+});
+
+$("#menuSelector").on("selectoritemchange", function(e){
+	console.log(e);
+	/*
+	switch (itemIndex) {
+	case MENU_ITEMS.BACK:
+		closeMenu();
+		break;
+	case MENU_ITEMS.SEARCH:
+		AppState = STATE.SEARCHING_BY_ADDRESS;
+		tau.changePage("#searchByAddressPage");
+		break;
+	case MENU_ITEMS.ROUTES:
+		AppState = STATE.SELECTING_ROUTE;
+		tau.changePage("#routesMain");
+		// tau.openPopup(routesPopup);
+
+		break;
+	}*/
+	console.log(e.index);
+	
 	
 });
+
+
 
