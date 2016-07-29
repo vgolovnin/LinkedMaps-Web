@@ -1,5 +1,5 @@
 var selector = document.getElementById("menuSelector");
-
+var isFake = true;
 $("#menuButton").on("click", function(){
 	console.log("menu clicked");
 	document.removeEventListener("rotarydetent", mapRotaryListener);
@@ -10,7 +10,7 @@ $("#mainPage").on("pagebeforeshow", function() {
 	console.log("showing MAIN PAGE");
 
 	document.addEventListener("rotarydetent", mapRotaryListener);
-	if (AppState === STATE.MAIN_MAP && map != null) {
+	if (AppState === STATE.MAIN_MAP && map !== null) {
 		 
 		map.off("contextmenu");
 		addLongTapListener();
@@ -88,10 +88,12 @@ $("#buildRouteButton").on("click", function() {
 		};
 		buildRoute(pointA, pointB, function(){
 			tau.changePage("#mainPage");
-		});
+		}, isFake);
 		
 
 	}
 });
-
+$("#nearestSelector").on("selectoritemchange", function(event){
+	
+});
 
