@@ -43,6 +43,7 @@ var routeFromPhone = {"pointA": null,
 
 function getMsg(data, replyPort) 
 {
+	
 	var msg = {}
 	console.log("MESSSAGE WAS RECIEVED");
 	
@@ -55,6 +56,8 @@ function getMsg(data, replyPort)
 	
 	switch(msg.command){
 	case "0":
+		if (fake)
+			break;
 		onGeoRecieved([parseFloat(msg.lat), parseFloat(msg.lng)]);
 		break;
 	case "1":

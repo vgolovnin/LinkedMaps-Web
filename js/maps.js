@@ -4,7 +4,9 @@
 var map;
  pinMarker = null,
  buildedRoute = null,
-   currentPositionMarker = null;
+  currentPositionMarker = null, 
+  routeBoundMarkers = [],
+  nearestPlacesMarkers = [];
 DG.then(function() {
 	console.log("init map");
 	map = DG.map('mmm', {
@@ -43,7 +45,7 @@ function addLongTapListener(){
 					if (response.status==="OK"){
 						markerDescr = response;
 						console.log(response);
-						var buttonHref = (currentPositionMarker !== null) ? "<a href=\"#\" onClick=\"routeToMarker()\">Route here</a>" : "";
+						var buttonHref = (currentPositionMarker !== null) ? "<a href=\"#\" onclick=\"routeToMarker();\">Route here</a>" : "";
 						popup.setContent("<span style=\"font-size=1em\">" + response.results[0].formatted_address + "</span>" + buttonHref);
 					} else {
 						console.log(response.status);
@@ -60,8 +62,74 @@ function routeToMarker(){
 	buildRoute(currentPositionMarker.getLatLng(), pinMarker.getLatLng());
 	return false;
 }
+
+function fakerSegment(start_location, end_location, duration, j)
+{
+	if (j < 10)
+	{
+		setTimeout(function(){
+			var current_location = {};
+			current_location.lat = start_location.lat + (end_location.lat - start_location.lat) * ((j+1)/10.0);
+			current_location.lng = start_location.lng + (end_location.lng - start_location.lng) * ((j + 1)/10.0);
+			console.log("go " + current_location);
+			onGeoRecieved(current_location);
+			fakerSegment(start_location, end_location, duration, j+1);
+		}, duration * 10);
+	}
+}
+var step_number, STEPS;
+function faker(steps, i, callback)
+{	
+	
+	if (i < steps.length)
+	{
+		var duration = steps[i].duration.value;
+		console.log([steps[i].start_location.lat,steps[i].start_location.lng]);
+		
+
+
+		fakerSegment(steps[i].start_location, steps[i].end_location, duration , 0);
+		
+		setTimeout(function(){
+			console.log("waited for ", duration);
+			
+			// IN THE NODE
+			controlPointAchieved(steps, i+1);
+		
+		}, duration * 101 + 200);
+		
+	}
+	
+}
+function controlPointAchieved(steps, i){
+	step_number = i;
+	navigator.vibrate(300);
+	STEPS = steps;
+	if (i<steps.length - 1){ 
+		$("#popupText").html(steps[i + 1].html_instructions);
+	} else { 
+		clearMap();
+		$("#popupText").html("Маршрут завершен");
+			
+	}
+    
+	tau.changePage("#popupPage");
+}
+function popupOk(){
+	faker(STEPS, step_number+1);
+	
+	tau.back();
+}
+
+function startFakeNavigation(steps)
+{
+	faker(steps, 0);
+}
+
+
+
 ///INVOKE ONLY IN MAIN PAGE 
-function routeApiResult(response, on_finish){
+function routeApiResult(response, on_finish, fake){
 	 var leg = response.routes[0].legs[0],
  	 steps = leg.steps;
 	 
@@ -78,25 +146,26 @@ function routeApiResult(response, on_finish){
 	
 	var m1 = DG.marker([steps[0].start_location.lat,steps[0].start_location.lng]), 
 	    m2 = DG.marker([steps[steps.length - 1].end_location.lat,steps[steps.length - 1].end_location.lng]);
-	 markers.push(m1,m2);
-	 m1.addTo(map);
-	 m2.addTo(map); 
-	 
+	 routeBoundMarkers.push( m1.addTo(map),m2.addTo(map));	 
 	 map.fitBounds([[steps[0].start_location.lat, steps[0].start_location.lng], [steps[steps.length - 1].end_location.lat,steps[steps.length - 1].end_location.lng]]);
 	 map.zoomOut();
 	 
 	 $("#goButton").css({"display":"block"});
 	 
-	 
+	 if (fake)
+		 startFakeNavigation(steps);
 	 
 	 if (on_finish !== null && typeof on_finish !== 'undefined')
 		 on_finish();
 }
 
 
-
-
-
+/*setTimeout(function(){
+	onGeoRecieved([ 54.98, 82.89 ]);
+	var latlng = currentPositionMarker.getLatLng();
+	showNearestPlaces('food', latlng.lat + "," + latlng.lng);
+},1000);	
+*/
 function onGeoRecieved(latlng){
   if(currentPositionMarker === null){
 	  currentPositionMarker = 
@@ -104,13 +173,12 @@ function onGeoRecieved(latlng){
 	  currentPositionMarker = DG.marker(latlng, {
            icon: DG.icon({
                		iconUrl: 'img/pos.png',
-               		iconSize: [48, 48]
+               		iconSize: [16, 16]
            	 	 })
       }).addTo(map);
   } else 
 	  currentPositionMarker.setLatLng(latlng);
-  
-  map.panTo(currentPositionMarker.getLatLng());
+  map.setView(currentPositionMarker.getLatLng(), 15);
 }
 function clearMap() {
 	
@@ -118,6 +186,15 @@ function clearMap() {
 		pinMarker.remove();
 		pinMarker = null;
 	}
+	for (var i = 0; i < routeBoundMarkers.length; i++)
+		routeBoundMarkers[i].remove();
+	for (var j = 0; j < nearestPlacesMarkers.length; j++)
+		nearestPlacesMarkers[j].remove();
+	
+	nearestPlacesMarkers = [];
+	routeBoundMarkers = [];
+	
+	
 	if (buildedRoute !== null) {
 		buildedRoute.remove();
 		buildedRoute = null;
