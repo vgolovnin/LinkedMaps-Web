@@ -93,7 +93,11 @@ $("#buildRouteButton").on("click", function() {
 
 	}
 });
-$("#nearestSelector").on("selectoritemchange", function(event){
+$(".groupItem").on("click", function(event){
+	if (currentPositionMarker !== null) {
+	 showNearestPlace($(this).attr("data-group"), currentPositionMarker.getLatLng());
+	 tau.changePage("#mainPage");
+	}
 	
 });
 

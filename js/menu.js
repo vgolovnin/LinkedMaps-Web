@@ -39,8 +39,9 @@ function closeMenu() {
 }
 var MENU_ITEMS = {
 	BACK : 0,
-	SEARCH : 1,
-	ROUTES : 2
+	SEARCH : 2,
+	ROUTES : 1,
+	NEAREST : 3
 };
 function menuItemWasSelected(itemIndex) {
 	switch (itemIndex) {
@@ -54,6 +55,11 @@ function menuItemWasSelected(itemIndex) {
 	case MENU_ITEMS.ROUTES:
 		AppState = STATE.SELECTING_ROUTE;
 		tau.changePage("#routesMain");
+		// tau.openPopup(routesPopup);
+
+		break;
+	case MENU_ITEMS.NEAREST:
+		tau.changePage("#nearestPage");
 		// tau.openPopup(routesPopup);
 
 		break;
