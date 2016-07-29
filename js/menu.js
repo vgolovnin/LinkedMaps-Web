@@ -2,7 +2,8 @@ STATE = {
 	MAIN_MAP : 1,
 	SELECTING_ROUTE : 2,
 	SHOWING_ROUTE : 3,
-	SEARCHING_BY_ADDRESS : 4
+	SEARCHING_BY_ADDRESS : 4,
+	NAVIGATING : 5 //when route is build and user pressed go button
 }, AppState = STATE.MAIN_MAP;
 
 /**

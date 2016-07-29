@@ -41,3 +41,11 @@ html,body {
 	width: 75px !important;
 	height: 75px !important;
 }
+.ui-more::after{
+	background-color: rgb(58, 45, 33) !important;
+	width: 30px !important;
+    height: 60px !important;
+}
+#menuButton{
+	width: 60px !important;
+}
