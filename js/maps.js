@@ -2,8 +2,9 @@
 
 
 var map;
-var markers = [];
-var buildedRoute = null;
+ pinMarker = null,
+ buildedRoute = null,
+   currentPositionMarker = null;
 DG.then(function() {
 	console.log("init map");
 	map = DG.map('mmm', {
@@ -13,30 +14,51 @@ DG.then(function() {
 		fullscreenControl: false,
         zoomControl: false
 	});
+	
+	addLongTapListener();
+	console.log(map);
 	startScan();
 	 
-	console.log(map);
+	
 	 
 
-	addLongTapListener();
+
 	
 });
 function addLongTapListener(){
+	console.log("adding Long tap listener");
 	map.on('contextmenu', function(e){
-		var newMarker = DG.marker([ e.latlng.lat, e.latlng.lng ]);
-		newMarker.addTo(map);
-		markers.push(newMarker);
-	 	
-		if (markers.length == 2){ 
-			
-			var m1 = markers[0], m2 = markers[1];
-			
-			buildRoute(m1.getLatLng(),m2.getLatLng());
-		
-		} 
-		
+		if (pinMarker !== null){
+			pinMarker.remove();
+		}
+		pinMarker = DG.marker([ e.latlng.lat, e.latlng.lng ]);
+		var popup = DG.popup().setContent('<img src="img/loader2.gif" style="width=20px;heigth: 20px;"/>');
+	   
+		pinMarker.addTo(map).bindPopup(popup);    
+		var markerDescr = null;
+		pinMarker.on("popupopen", function(){
+			console.log("popup opened");
+			if (markerDescr === null)
+				getAddresByLatLng(pinMarker.getLatLng(), function(latlng, response){
+					if (response.status==="OK"){
+						markerDescr = response;
+						console.log(response);
+						var buttonHref = (currentPositionMarker !== null) ? "<a href=\"#\" onClick=\"routeToMarker()\">Route here</a>" : "";
+						popup.setContent("<span style=\"font-size=1em\">" + response.results[0].formatted_address + "</span>" + buttonHref);
+					} else {
+						console.log(response.status);
+						console.log(response);
+					}
+					
+				});
+		});
+
 		console.log("contextmenu " + e.latlng.lat + " "+ e.latlng.lng);
 	});
+}
+function routeToMarker(){
+	buildRoute(currentPositionMarker.getLatLng(), pinMarker.getLatLng());
+	return false;
 }
 ///INVOKE ONLY IN MAIN PAGE 
 function routeApiResult(response, on_finish){
@@ -74,7 +96,6 @@ function routeApiResult(response, on_finish){
 
 
 
-var currentPositionMarker = null;
 
 function onGeoRecieved(latlng){
   if(currentPositionMarker === null){
@@ -92,11 +113,10 @@ function onGeoRecieved(latlng){
   map.panTo(currentPositionMarker.getLatLng());
 }
 function clearMap() {
-	if (markers.length > 0) {
-		for (var i = 0; i < markers.length; i++) {
-			markers[i].remove();
-		}
-		markers = [];
+	
+	if (pinMarker!==null){
+		pinMarker.remove();
+		pinMarker = null;
 	}
 	if (buildedRoute !== null) {
 		buildedRoute.remove();

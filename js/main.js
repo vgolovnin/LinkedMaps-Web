@@ -18,6 +18,7 @@ window.onload = function() {
 						switch (pageid) {
 						case "mainPage":
 							console.log("pop from main, exiting");
+							
 							tizen.application.getCurrentApplication().exit();
 							break;
 						case "menuPage":
